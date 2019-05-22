@@ -18,7 +18,7 @@ async function isAuthenticated(req, res, next) {
         var uid = decodedToken.uid;
         // ...
         console.log("This token is correct");
-        req.firebaseid = uid; 
+        req.body.user_firebase_id = uid; 
         next();
          }).catch(function(error) {
             console.log("This token is incorrect");
@@ -28,3 +28,5 @@ async function isAuthenticated(req, res, next) {
         });
     }
 }
+
+module.exports = isAuthenticated;
